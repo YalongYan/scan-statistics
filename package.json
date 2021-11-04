@@ -1,0 +1,30 @@
+{
+  "name": "scan-statistics",
+  "version": "0.0.1",
+  "description": "埋点统计请求工具",
+  "author": "yyl",
+  "private": false,
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc -p tsconfig.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YalongYan/downlaod-table-to-csv"
+  },
+  "homepage": "https://www.cnblogs.com/yalong/p/15214644.html",
+  "keywords": [
+    "pv",
+    "uv",
+    "statistics"
+  ],
+  "dependencies": {
+    "axios": "^0.24.0"
+  },
+  "devDependencies": {
+    "typescript": "^4.2.4"
+  }
+}
