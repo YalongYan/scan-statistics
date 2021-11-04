@@ -10,10 +10,16 @@ interface propTypes {
   platform: string
 }
 
-const handleStatisticsRequest: (obj: propTypes) => any = async (obj) => {
+/**
+ * 
+ * @param obj 请求的参数体
+ * @param url 请求要使用的接口地址，默认是本地的服务地址
+ * @returns 
+ */
+const handleStatisticsRequest: (obj: propTypes, url?: string) => any = async (obj, url) => {
   try {
     const res = await axios({
-      url: 'http://127.0.0.1:1153/scanStatic/addScanInfo',
+      url: url || 'http://127.0.0.1:1153/scanStatic/addScanInfo',
       method: "post",
       params: obj
     });

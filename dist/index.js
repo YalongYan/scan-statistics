@@ -35,14 +35,20 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 import axios from 'axios';
-var handleStatisticsRequest = function (obj) { return __awaiter(void 0, void 0, void 0, function () {
+/**
+ *
+ * @param obj 请求的参数体
+ * @param url 请求要使用的接口地址，默认是本地的服务地址
+ * @returns
+ */
+var handleStatisticsRequest = function (obj, url) { return __awaiter(void 0, void 0, void 0, function () {
     var res, err_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 2, , 3]);
                 return [4 /*yield*/, axios({
-                        url: 'http://127.0.0.1:1153/scanStatic/addScanInfo',
+                        url: url || 'http://127.0.0.1:1153/scanStatic/addScanInfo',
                         method: "post",
                         params: obj
                     })];
