@@ -34,33 +34,27 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-import axios from 'axios';
 /**
  *
- * @param obj 请求的参数体
+ * @param obj 请求的参数 包含 email、userName、requestUrl、browserUrl、env、platform; 其中 requestUrl 非必传，其他都是必传的
  * @param url 请求要使用的接口地址，默认是本地的服务地址
  * @returns
  */
 var handleStatisticsRequest = function (obj, url) { return __awaiter(void 0, void 0, void 0, function () {
-    var res, err_1;
     return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0:
-                _a.trys.push([0, 2, , 3]);
-                return [4 /*yield*/, axios({
-                        url: url || 'http://127.0.0.1:1153/scanStatic/addScanInfo',
-                        method: "post",
-                        params: obj
-                    })];
-            case 1:
-                res = _a.sent();
-                return [2 /*return*/, res];
-            case 2:
-                err_1 = _a.sent();
-                console.log(err_1);
-                return [3 /*break*/, 3];
-            case 3: return [2 /*return*/];
+        try {
+            fetch(url || 'http://127.0.0.1:1153/scanStatic/addScanInfo', {
+                method: 'POST',
+                body: JSON.stringify(obj),
+                headers: new Headers({
+                    'Content-Type': 'application/json'
+                })
+            });
         }
+        catch (err) {
+            console.log(err);
+        }
+        return [2 /*return*/];
     });
 }); };
 // let obj = {

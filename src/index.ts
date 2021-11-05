@@ -1,5 +1,3 @@
-import axios from 'axios';
-
 // 只有 requestUrl 是非必传的 其他都是必传的
 interface propTypes {
   email: string,
@@ -12,18 +10,19 @@ interface propTypes {
 
 /**
  * 
- * @param obj 请求的参数体
+ * @param obj 请求的参数 包含 email、userName、requestUrl、browserUrl、env、platform; 其中 requestUrl 非必传，其他都是必传的
  * @param url 请求要使用的接口地址，默认是本地的服务地址
- * @returns 
+ * @returns
  */
-const handleStatisticsRequest: (obj: propTypes, url?: string) => any = async (obj, url) => {
+const handleStatisticsRequest: (obj: propTypes, url?: string) => void = async (obj, url) => {
   try {
-    const res = await axios({
-      url: url || 'http://127.0.0.1:1153/scanStatic/addScanInfo',
-      method: "post",
-      params: obj
-    });
-    return res
+    fetch(url || 'http://127.0.0.1:1153/scanStatic/addScanInfo', {
+      method: 'POST',
+      body: JSON.stringify(obj),
+      headers: new Headers({
+        'Content-Type': 'application/json'
+      })
+    })
   } catch (err) {
     console.log(err);
   }
