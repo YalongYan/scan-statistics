@@ -1,3 +1,7 @@
+#### 安装依赖 
+```
+npm i scan-statistics -S
+```
 #### 使用方法
 ```
 import handleStatisticsRequest from 'scan-statistics';
